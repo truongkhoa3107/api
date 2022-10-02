@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('product_id')->unsigned()->index();
+            $table->increments('id'); // 
+            $table->integer('product_id')->unsigned()->index(); // Khai báo cột 'product_id' kiểu int, không được phép insert giá trị < 0, gắn index để truy xuất nhanh chóng
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade'); // Khai báo cột 'product_id' là khóa ngoại của cột 'id' trong bảng 'products', khi xóa 'id' bên bảng 'products' sẽ xóa các hàng dữ liệu liên quan bên bảng 'reviews'
             $table->string('customer');
             $table->text('review');
             $table->integer('star');
             $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

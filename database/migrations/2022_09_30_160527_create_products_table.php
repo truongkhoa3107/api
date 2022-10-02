@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->text('detail');
-            $table->integer('price');
-            $table->integer('stock');
-            $table->integer('discount');
+            $table->increments('id');       // Khai báo cột 'id' kiểu integer <=> int(10), tự tăng khi thêm mới
+            $table->string('name');         // Khai báo cột 'name' kiểu string <=> varchar(255)
+            $table->text('detail');         // Khai báo cột 'detail' kiểu text
+            $table->integer('price');       // Khai báo cột 'price' kiểu integer <=> int(11)
+            $table->integer('stock');       // Khai báo cột 'stock' kiểu integer <=> int(11)
+            $table->integer('discount');    // Khai báo cột 'discount' kiểu integer <=> int(11)
             $table->timestamps();
         });
     }
