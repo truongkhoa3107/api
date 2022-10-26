@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('price');       // Khai báo cột 'price' kiểu integer <=> int(11)
             $table->integer('stock');       // Khai báo cột 'stock' kiểu integer <=> int(11)
             $table->integer('discount');    // Khai báo cột 'discount' kiểu integer <=> int(11)
+            $table->integer('user_id')->unsigned()->index();    // Khai báo cột 'discount' kiểu integer <=> int(11)
             $table->timestamps();
         });
     }
